@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RubiCross Solutions</title>
+
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Styles/SitesStyles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Patua+One|Poiret+One|Yantramanav" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/jquery.flip.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        var TxtRotate = function (el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+
+        TxtRotate.prototype.tick = function () {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+            var that = this;
+            var delta = 300 - Math.random() * 100;
+
+            if (this.isDeleting) { delta /= 2; }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+
+            setTimeout(function () {
+                that.tick();
+            }, delta);
+        };
+
+        window.onload = function () {
+            var elements = document.getElementsByClassName('txt-rotate');
+            for (var i = 0; i < elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-rotate');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new TxtRotate(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+            // INJECT CSS
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+            document.body.appendChild(css);
+        };
+
+        // SCROLLING LINKS ANIMATION
+        $(document).ready(function () {
+            $('.slide-section').click(function (e) {
+
+                var linkHref = $(this).attr('href');
+                $('html, body').animate({
+                    scrollTop: $(linkHref).offset().top
+                }, 1000);
+                e.preventDefault();
+            });
+        });
+        // SCROLL BACK TO TOP
+        if ($('#back-to-top').length) {
+            var scrollTrigger = 100, // px
+                backToTop = function () {
+                    var scrollTop = $(window).scrollTop();
+                    if (scrollTop > scrollTrigger) {
+                        $('#back-to-top').addClass('show');
+                    } else {
+                        $('#back-to-top').removeClass('show');
+                    }
+                };
+            backToTop();
+            $(window).on('scroll', function () {
+                backToTop();
+            });
+            $('#back-to-top').on('click', function (e) {
+                e.preventDefault();
+                $('html,body').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+        }
+    </script>
+    <script>
+        $(document).on('click', '#al', function (event) {
+            event.preventDefault();
+
+            $('html, body').animate({
+                scrollTop: $($.attr(this, 'href')).offset().top
+            }, 800);
+        });
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDa8igRu74AZe0kuJAsexFSPfuaDRar8VI&callback=initMap" type="text/javascript"></script>
+    <script>
+        function initMap() {
+            var mapOptions = {
+                center: new google.maps.LatLng(-25.877440, 28.090069),
+                zoom: 10,
+                mapTypeId: google.maps.MapTypeId.roadmap
+            }
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        }
+    </script>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <!--NAVBAR-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container ">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavBar">
+                <ul class="nav navbar-nav" style="text-align: center !important; float: none; overflow: hidden; ">
+                    <li class="active"><a id="al" href="#Home" class="navbar_li">Home</a></li>
+                    <li><a id="al" href="#Services" class="navbar_li">Services</a></li>
+                    <li><a id="al" href="#aboutus" class="navbar_li">About us</a></li>
+                    <li><a id="al" href="#Clients" class="navbar_li">Clients</a></li>
+                    <li><a id="al" href="#ContactUs" class="navbar_li">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--FIXED LOGO-->
+    <div>
+        <img src="../Assets/static_logo.png" class="logo" style="position: fixed; right:20px; bottom:15px; height:55px; z-index:9999;" />
+    </div>
+    <!--HERO SECTION-->
+    <div style="text-align:center">
+        <div id="Home" class="header_container">
+            <div style="text-align: center; padding-top:15%">
+                <div style="display:inline-block">
+                    <img src="../Assets/test_logo_2.png" class="logo hero_logo_mobile" style="position: relative;
+                            right:126%" />
+                </div>
+                <!--MAIN TITLE-->
+                <h1 class="hero_title">RubiCross Solutions</h1>
+                <!--ANIMATED TEXT-->
+                <h1 id="heroH1" class="animated_text">
+                    We
+                    <span class=" txt-rotate"
+                          data-period="500"
+                          data-rotate='[" design and create websites  ", "do hosting  ", " create third-party interfaces  ", "do development  :)  "]'>
+                    </span>
+                </h1>
+                <!--SUB TEXT-->
+                <div style="padding-bottom:20%;">
+                    <p class="hero_sub_text">Visual Design  //  Software Development  //  Business Solutions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--SERVICE SECTION-->
+    <section style="background-color: #c24a3b;">
+        <div id="Services">
+            <h1 class="service_header">Our Services</h1>
+            <hr style="width:100px; background-color:white; height:3px;" />
+        </div>
+        <!--CARD CONTAINER-->
+        <div class="container" style="text-align: center; padding-bottom:65px;">
+            <div class="row" style="padding-top:50px; padding-bottom:5px;">
+                <!--HOSTING CARD-->
+                <div class="col-md-3 col-sm-6">
+                    <div class="service_box_shadow service_cards">
+                        <img src="../Assets/Hosting_icon.png" class="logo" />
+                        <div style="color: #00A6A6;" class="service_card_titles">
+                            DESIGN
+                        </div>
+                        <div class="service_card_text">
+                            Creations and planning of your website.
+                        </div>
+                    </div>
+                </div>
+                <!--WEB DEVELOPMENT CARD-->
+                <div class="col-md-3 col-sm-6">
+                    <div class="service_box_shadow  service_cards">
+                        <img src="../Assets/coding.png" class="logo" />
+                        <div style="color: #FE9920;" class="service_card_titles">
+                            DEVELOPMENT
+                        </div>
+                        <div class="service_card_text">
+                            We develop solutions and systems according to best practises.
+                        </div>
+                    </div>
+                </div>
+                <!--INTERFACE CARD-->
+                <div class="col-md-3 col-sm-6">
+                    <div class="service_box_shadow  service_cards">
+                        <img src="../Assets/interface.png" class="logo" />
+                        <div style="color: #BF3100;" class="service_card_titles">
+                            3rd PARTY INTERFACES
+                        </div>
+                        <div class="service_card_text">
+                            We develop 3rd party interfaces between applications.
+                        </div>
+                    </div>
+                </div>
+                <!--WEBSITE CARD-->
+                <div class="col-md-3 col-sm-6">
+                    <div class="service_box_shadow  service_cards">
+                        <img src="../Assets/website.png" class="logo" />
+                        <div style="color: #8EA604;" class="service_card_titles">
+                            WEB SITES
+                        </div>
+                        <div class="service_card_text">
+                            We build and develop your site from the ground up.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background-color: #2a546e; ">
+        <div id="aboutus">
+            <h1 class="service_header">About us</h1>
+            <hr style="width:100px; background-color:white; height:3px;" />
+            <div class="container" style="padding-top: 30px; padding-bottom: 60px; color: white; font-family: 'Quicksand', sans-serif;">
+                <div>
+                    May. Make one also them have without they're divide make give don't likeness i air said that brought. Fowl great unto that.
+                    Fourth give land made i, rule air fruit great make and all, creature heaven great have, waters gathering creepeth grass divided which Had. One won't was creepeth,
+                    of cattle first moved, evening behold one can't given given moveth sea first don't can't cattle darkness creature firmament appear.
+                    <br><br />
+                    The. To lesser lights seas them. Dry them his be given. Blessed created kind, very Their multiply heaven don't. A fruitful image man,
+                    the winged isn't two in you'll. Forth creature there place darkness air kind were seed and abundantly air deep place life. Seed. Our and seed very shall likeness called may.
+                    <br><br />
+                    Itself herb night our living form. Moved set. It whose which dominion and fifth days fourth unto, life yielding likeness you sea void
+                    had without subdue fowl life Fruitful form had kind evening he bring good. For. Winged divided thing abundantly seas and likeness said
+                    place subdue yielding don't, set behold. Called, two, waters fowl. Moving shall yielding made. Divided subdue make living appear was their.
+                    Every called don't said make so rule so fill. Tree evening, also.
+                </div>
+                <div style="text-align:center; margin-top:60px;"><img src="../Assets/test_logo_2.png" style="height:100px;"></div>
+            </div>
+
+        </div>
+    </section>
+    <!--CLIENTS SECTION-->
+    <section style="background-color: #4DA1A9; ">
+        <div id="Clients" style="padding-bottom:80px;">
+            <h1 class="service_header">Our Clients</h1>
+            <hr style="width:100px; background-color:white; height:3px;" />
+            <div class="container" style="padding-top:30px; padding-bottom:60px;">
+                <div class="row" style="text-align:center;">
+                    <div class="col-md-4" style="padding-bottom:20px;">
+                        <img src="../Assets/test_hosting.png" class="img-responsive" style="border-radius:10px;" />
+                        <div style="padding-top: 15px; color: white; font-family: 'Quicksand', sans-serif;"><b>TOTAL ASSET MANAGEMENT SYSTEMS</b></div>
+                    </div>
+                    <div class="col-md-4" style="padding-bottom:20px;">
+                        <img src="../Assets/test_hosting.png" class="img-responsive" style="border-radius:10px;" />
+                        <div style="padding-top: 15px; color: white; font-family: 'Quicksand', sans-serif;"><b>INSTA BUSINESS REGISTRATION</b></div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="../Assets/test_hosting.png" class="img-responsive" style="border-radius:10px;" />
+                        <div style="padding-top: 15px; color: white; font-family: 'Quicksand', sans-serif;"><b>PRETORIA VOICE CLINIC</b></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--CONTACT US SECTION-->
+    <section style="background-color: #0C1821; ">
+        <h1 class="service_header">Get In Touch</h1>
+        <hr style="width:100px; background-color:white; height:3px;" />
+        <div class="container" id="ContactUs" style="margin-top:60px;">
+            <div class="row contact_box_shadow contact_form_container">
+                <div class="contact_form_card_header_container">
+                    <h3 class="contact_form_card_title">send us a message</h3>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <form>
+                            <!--NAME SURNAME-->
+                            <div style="margin-bottom:15px;">
+                                <div class="form_label_containers">
+                                    <label class="form_label">Name & Surname</label>
+                                </div>
+                                <input type="text" name="NameTextBox" class="form_input" placeholder="enter your name" />
+                            </div>
+                            <!--EMAIL ADDRESS-->
+                            <div style="margin-bottom: 15px; ">
+                                <div class="form_label_containers">
+                                    <label class="form_label">Email address</label>
+                                </div>
+                                <input type="text" name="EmailTextBox" class="form_input" placeholder="enter your surname" />
+                            </div>
+                            <!--CONTACT NUMBER-->
+                            <div style="margin-bottom: 15px; ">
+                                <div class="form_label_containers">
+                                    <label class="form_label">Contact number</label>
+                                </div>
+                                <input type="text" name="NumberTextBox" class="form_input" placeholder="enter your contact number" />
+                            </div>
+                            <!--MESSAGE-->
+                            <div style="padding-bottom: 15px; ">
+                                <div class="form_label_containers">
+                                    <label class="form_label">Message</label>
+                                </div>
+                                <textarea name="MessageTextBox" class="form_textarea" placeholder="enter your message"></textarea>
+                            </div>
+                            <!--BUTTONS-->
+                            <div style="padding-bottom:20px; padding-top:10px;">
+                                <button type="submit" class="btn btn-primary" style="width:80px">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--GOOGLE MAP-->
+                <div class="col-md-6">
+                    <div id="map" class="map_shadow" style="height: 335px !important; border: 1px solid #b9b9b9;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--FOOTER-->
+        <footer style="color: white; font-size: 16px; font-family: 'Quicksand';">
+            <div class="container">
+                <p>© RubiCross Solutions 2017</p>
+            </div>
+        </footer>
+    </section>
+</body>
+</html>

@@ -1,0 +1,291 @@
+﻿.header_container {
+    background-image: url('../Assets/4044b8f3c813184729dbe8953d98f334.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.header_container_2 {
+    background-image: url('../Assets/nebula-8544x5696-space-stars-andromeda-6592.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    padding-bottom: 100px;
+    background-attachment: fixed;
+}
+
+.logo {
+    height: 73px;
+    margin-bottom: 7px;
+    margin-top: 25px;
+}
+
+.p_White_Containers {
+    font-family: 'Quicksand', sans-serif;
+    color: white !important;
+    font-size: 16px !important;
+}
+
+.h3_White_Containers {
+    font-family: 'Quicksand', sans-serif;
+    color: white !important;
+    font-size: 34px;
+}
+
+.hosting_container {
+    background-image: url('../Assets/project_image_background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.contact_div {
+    box-shadow: 0px 3px 20px black;
+}
+
+.service_box_shadow {
+    box-shadow: 0 5px 20px 0px #520000;
+}
+
+    .service_box_shadow:hover {
+        background-color: white !important;
+
+    }
+
+.contact_box_shadow {
+    box-shadow: 0 5px 20px 0px black;
+}
+
+.navBarCustom {
+    background-color: #BB4430;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.navbar-inverse .navbar-nav > .active > a:hover {
+    background-color: #BB4430 !important;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white !important;
+}
+
+
+.navbar-inverse {
+    background-color: #0e3757;
+}
+
+.navbar-collapse {
+    text-align: center;
+}
+
+.navbar-nav {
+    display: inline-block;
+}
+
+.navbar-center {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+}
+
+.navbar_li {
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    margin-right: 50px;
+    font-weight:900;
+}
+
+.hero_title {
+    font-family: 'Russo One', sans-serif;
+    color: white;
+    font-size: 68px;
+    margin-top: 0;
+    padding-bottom: 3%;
+}
+
+.animated_text {
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
+}
+
+.hero_sub_text {
+    color: white;
+    opacity: 0.85;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+}
+
+.service_header {
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    font-size: 45px;
+    margin-bottom: 15px;
+    padding-top: 50px;
+    margin-top: 0;
+    text-align: center;
+}
+
+.service_cards {
+    background-color: #2E282A;
+    border-radius: 4px 4px 4px 4px;
+    margin-bottom: 25px;
+}
+
+.service_card_titles {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px !important;
+    padding-top: 10px;
+}
+
+.service_card_text {
+    color: #b9b9b9;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 100 !important;
+    padding-top: 25px;
+    height: 150px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.contact_form_container {
+    background-color: #323a45;
+    margin-bottom: 50px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.contact_form_card_header_container {
+    background-color: #EB6534;
+    height: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 35px;
+}
+
+.contact_form_card_title {
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    font-size: 22px;
+    font-weight: 100;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-top: 12px;
+}
+
+.form_label_containers {
+    display: inline-block;
+    text-align: center;
+    width: 125px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.form_input {
+    height: 30px;
+    padding-left: 5px;
+    width: 65%;
+    border: none;
+}
+
+.form_label {
+    padding-top: 5px;
+    color: white;
+    text-align: right;
+    width: 125px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 100;
+}
+
+.form_textarea {
+    width: 65%;
+    height: 140px;
+    vertical-align: top;
+    padding-left: 5px;
+    padding-top: 5px;
+    border: none;
+}
+
+@media screen and (max-width: 718px) {
+    .hero_logo_mobile {
+        right: 0% !important;
+    }
+}
+
+-----------------------------------------------
+
+
+
+
+.flip-container {
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -o-perspective: 1000;
+  perspective: 1000;
+
+	border: 1px solid #ccc;
+}
+
+	.flip-container:hover .flipper,  
+  .flip-container.hover .flipper {
+		-webkit-transform: rotateY(180deg);
+		-moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .front, .back {
+	width: 320px;
+	height: 427px;
+}
+
+.flipper {
+	-webkit-transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+
+	-moz-transition: 0.6s;
+	-moz-transform-style: preserve-3d;
+  
+  -o-transition: 0.6s;
+	-o-transform-style: preserve-3d;
+
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+.front, .back {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.front {
+	background: url(http://davidwalsh.name/demo/dwflip.jpg) 0 0 no-repeat;
+	z-index: 2;
+}
+
+.back {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+
+	background: #f8f8f8;
+}
+
+
+
+
+
+

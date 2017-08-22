@@ -1,0 +1,9 @@
+D:\Development_Work\RubiCross\RubiCross\WebUi\bin\WebUi.dll.config
+D:\Development_Work\RubiCross\RubiCross\WebUi\bin\WebUi.dll
+D:\Development_Work\RubiCross\RubiCross\WebUi\bin\WebUi.pdb
+D:\Development_Work\RubiCross\RubiCross\WebUi\bin\WebUi.xml
+D:\Development_Work\RubiCross\RubiCross\WebUi\obj\Debug\WebUi.Resources.resources
+D:\Development_Work\RubiCross\RubiCross\WebUi\obj\Debug\WebUi.vbproj.GenerateResource.Cache
+D:\Development_Work\RubiCross\RubiCross\WebUi\obj\Debug\WebUi.dll
+D:\Development_Work\RubiCross\RubiCross\WebUi\obj\Debug\WebUi.xml
+D:\Development_Work\RubiCross\RubiCross\WebUi\obj\Debug\WebUi.pdb
